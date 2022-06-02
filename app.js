@@ -34,16 +34,16 @@ app.post("/webhook", (req, res) => {
   // info on WhatsApp text message payload: https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#text-messages
   if (req.body.object) {
     if (
-      req.body.entry &&
-      req.body.entry[0].changes &&
-      req.body.entry[0].changes[0] &&
-      req.body.entry[0].changes[0].value.messages &&
-      req.body.entry[0].changes[0].value.messages[0]
+      req?.body?.entry &&
+      req?.body?.entry[0].changes &&
+      req?.body?.entry[0].changes[0] &&
+      req?.body?.entry[0].changes[0].value.messages &&
+      req?.body?.entry[0].changes[0].value.messages[0]
     ) {
       let phone_number_id =
-        req.body.entry[0].changes[0].value.metadata.phone_number_id;
-      let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
-      let msg_body = (req.body.entry[0].changes[0].value.messages[0].text.body).toLowerCase(); // extract the message text from the webhook payload
+        req?.body?.entry[0].changes[0].value.metadata.phone_number_id;
+      let from = req?.body?.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
+      let msg_body = (req?.body?.entry[0].changes[0].value.messages[0].text.body).toLowerCase(); // extract the message text from the webhook payload
       axios({
         method: "POST", // Required, HTTP method, a string, e.g. POST, GET
         url:
