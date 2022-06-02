@@ -95,5 +95,7 @@ app.get("/webhook", (req, res) => {
       // Responds with '403 Forbidden' if verify tokens do not match
       res.sendStatus(403);
     }
+  } else {
+       res.status(400).send({ error: "missing parameters WEBHOOK_VERIFIED " });
   }
 });
