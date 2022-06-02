@@ -66,6 +66,10 @@ app.post("/webhook", (req, res) => {
   }
 });
 
+app.get("/test", (req, res) => {
+  res.status(200).send({ test: "success" });
+});
+
 // Accepts GET requests at the /webhook endpoint. You need this URL to setup webhook initially.
 // info on verification request payload: https://developers.facebook.com/docs/graph-api/webhooks/getting-started#verification-requests
 app.get("/webhook", (req, res) => {
