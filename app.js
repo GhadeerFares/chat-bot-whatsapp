@@ -71,6 +71,8 @@ app.post("/webhook", (req, res) => {
                 ? "Jigsaw Co. Alaa Farahat \n Trustangle"
                 : msg_body.includes("dev")
                 ? "Sr. Eman Ayyad \n Trustangle"
+                : msg_body === "mobile"
+                ? "Hassan Al Najjar \n Trustangle"
                 : pure_msg,
           },
         },
