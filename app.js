@@ -43,7 +43,8 @@ app.post("/webhook", (req, res) => {
       let phone_number_id =
         req?.body?.entry[0].changes[0].value.metadata.phone_number_id;
       let from = req?.body?.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
-      let msg_body = (req?.body?.entry[0].changes[0].value.messages[0].text.body).toLowerCase(); // extract the message text from the webhook payload
+      let msg_body =
+        (req?.body?.entry[0].changes[0].value.messages[0].text.body).toLowerCase(); // extract the message text from the webhook payload
       axios({
         method: "POST", // Required, HTTP method, a string, e.g. POST, GET
         url:
@@ -54,7 +55,16 @@ app.post("/webhook", (req, res) => {
         data: {
           messaging_product: "whatsapp",
           to: from,
-          text: { body: msg_body === "hi" ? "hello" : msg_body === 'i love you' ? 'i love you too' : msg_body  },
+          text: {
+            body:
+              msg_body === "hi"
+                ? "hello"
+                : msg_body === "i love you"
+                ? "i love you too"
+                : msg_body === "cto"
+                ? " Hamza Abou Sitta \n Trustangle"
+                : msg_body,
+          },
         },
         headers: { "Content-Type": "application/json" },
       });
@@ -96,6 +106,6 @@ app.get("/webhook", (req, res) => {
       res.sendStatus(403);
     }
   } else {
-       res.status(400).send({ error: "missing parameters WEBHOOK_VERIFIED " });
+    res.status(400).send({ error: "missing parameters WEBHOOK_VERIFIED " });
   }
 });
