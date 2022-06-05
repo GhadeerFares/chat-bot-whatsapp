@@ -63,6 +63,14 @@ app.post("/webhook", (req, res) => {
                 ? "i love you too"
                 : msg_body === "cto"
                 ? " Hamza Abou Sitta \n Trustangle"
+                : msg_body === "ceo"
+                ? " Maysarah Mishaal \n Trustangle"
+                : msg_body === "technology consultant"
+                ? " Ahmed Jallabi \n Trustangle"
+                : msg_body.includes("Jigsaw")
+                ? "Jigsaw Co. Alaa Farahat \n Trustangle"
+                : msg_body.includes("dev")
+                ? "Sr. Eman Ayyad \n Trustangle"
                 : pure_msg,
           },
         },
