@@ -61,17 +61,17 @@ app.post("/webhook", (req, res) => {
                 ? "hello"
                 : msg_body === "i love you"
                 ? "i love you too"
-                : msg_body === "cto"
+                : msg_body.includes("cto")
                 ? " Hamza Abou Sitta \n Trustangle"
-                : msg_body === "ceo"
+                : msg_body.includes("ceo")
                 ? " Maysarah Mishaal \n Trustangle"
                 : msg_body === "technology consultant"
                 ? " Ahmed Jallabi \n Trustangle"
-                : msg_body.includes("Jigsaw")
+                : msg_body.includes("jigsaw")
                 ? "Jigsaw Co. Alaa Farahat \n Trustangle"
                 : msg_body.includes("dev")
                 ? "Sr. Eman Ayyad \n Trustangle"
-                : msg_body === "mobile"
+                : msg_body.includes("mobile")
                 ? "Hassan Al Najjar \n Trustangle"
                 : pure_msg,
           },
