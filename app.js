@@ -73,6 +73,8 @@ app.post("/webhook", (req, res) => {
                 ? "Sr. Eman Ayyad \n Trustangle"
                 : msg_body.includes("mobile")
                 ? "Hassan Al Najjar \n Trustangle"
+                : msg_body.includes("web")
+                ? "Ghadeer Shalayel \n Trustangle"
                 : pure_msg,
           },
         },
