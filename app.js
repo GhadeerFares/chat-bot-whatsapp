@@ -75,9 +75,9 @@ app.post("/webhook", (req, res) => {
                 ? "Hassan Al Najjar \n Trustangle"
                 : msg_body.includes("web")
                 ? "Ghadeer Shalayel \n Trustangle"
-                : msg_body.includes("My shipments")
+                : msg_body.includes("my shipments")
                 ? "This is your Shipments"
-                : msg_body.includes("Track")
+                : msg_body.includes("track")
                 ? "Enter Your Travk Number"
                 : pure_msg,
           },
